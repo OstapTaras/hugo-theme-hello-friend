@@ -41,6 +41,10 @@
         {{ end }}
       {{ end }}
 
+      {{ if .Params.Object_3d }}
+        <div class="object-3d post-cover" data-path="{{ .Params.Object_3d | absURL }}"></div>
+      {{ end }}
+
       <div class="post-content">
         {{ with .Description }}
           {{ . | markdownify }}

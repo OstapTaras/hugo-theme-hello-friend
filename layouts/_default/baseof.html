@@ -23,5 +23,19 @@
     {{ if $.Site.GoogleAnalytics }}
       {{ template "_internal/google_analytics.html" . }}
     {{ end }}
+
+    <script src="https://viewer.marmoset.co/main/marmoset.js"></script>
+    <script>
+      var blocks = document.getElementsByClassName("object-3d");
+      var path, myviewer;
+      var width = 860;
+      var height = 473;
+
+      for (var block of blocks) {
+        path = block.attributes['data-path'].value;
+        myviewer = new marmoset.WebViewer( width, height, path );
+        block.appendChild( myviewer.domRoot );
+      }  
+    </script>
   </body>
 </html>
